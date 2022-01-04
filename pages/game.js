@@ -1,0 +1,9 @@
+import styles from '../styles/pages/Game.module.css';
+
+export default function Game() {
+  return (
+    <div>
+      <h1>Game</h1>
+    </div>
+  );
+}
