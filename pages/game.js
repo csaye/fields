@@ -11,6 +11,12 @@ export default function Game() {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
+  // draws canvas
+  function draw() {
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, width, height);
+  }
+
   // called on window resize
   function onResize() {
     setWidth(window.innerWidth);
@@ -28,6 +34,10 @@ export default function Game() {
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
+
+  useEffect(() => {
+    draw();
+  }, [width, height]);
 
   return (
     <div>
