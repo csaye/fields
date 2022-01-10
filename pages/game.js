@@ -15,13 +15,27 @@ export default function Game() {
 
   // draws canvas
   function draw() {
+    // clear canvas
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, width, height);
+    // wider than tall
     ctx.fillStyle = 'white';
-    const tileSize = (width > height ? width : height) / mapSize;
-    for (let x = 0; x < mapSize; x++) {
-      for (let y = 0; y < mapSize; y++) {
-        ctx.fillRect(x * tileSize + 1, y * tileSize + 1, tileSize - 2, tileSize - 2);
+    if (width > height) {
+      const tileSize = width / mapSize;
+      const diff = -(width - height) / 2;
+      for (let x = 0; x < mapSize; x++) {
+        for (let y = 0; y < mapSize; y++) {
+          ctx.fillRect(x * tileSize + 1, diff + y * tileSize + 1, tileSize - 2, tileSize - 2);
+        }
+      }
+    // taller than wide
+    } else {
+      const tileSize = height / mapSize;
+      const diff = -(height - width) / 2;
+      for (let x = 0; x < mapSize; x++) {
+        for (let y = 0; y < mapSize; y++) {
+          ctx.fillRect(diff + x * tileSize + 1, y * tileSize + 1, tileSize - 2, tileSize - 2);
+        }
       }
     }
   }
