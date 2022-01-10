@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 
 import styles from '../styles/pages/Game.module.css';
 
-const mapSize = 10;
+const mapSize = 15;
+const border = 1;
 
 let canvas;
 let ctx;
@@ -25,7 +26,10 @@ export default function Game() {
       const diff = -(width - height) / 2;
       for (let x = 0; x < mapSize; x++) {
         for (let y = 0; y < mapSize; y++) {
-          ctx.fillRect(x * tileSize + 1, diff + y * tileSize + 1, tileSize - 2, tileSize - 2);
+          ctx.fillRect(
+            x * tileSize + border, diff + y * tileSize + border,
+            tileSize - border * 2, tileSize - border * 2
+          );
         }
       }
     // taller than wide
@@ -34,7 +38,10 @@ export default function Game() {
       const diff = -(height - width) / 2;
       for (let x = 0; x < mapSize; x++) {
         for (let y = 0; y < mapSize; y++) {
-          ctx.fillRect(diff + x * tileSize + 1, y * tileSize + 1, tileSize - 2, tileSize - 2);
+          ctx.fillRect(
+            diff + x * tileSize + border, y * tileSize + border,
+            tileSize - border * 2, tileSize - border * 2
+          );
         }
       }
     }
