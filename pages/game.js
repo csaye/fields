@@ -1,3 +1,5 @@
+import Header from '../components/Header';
+
 import { useEffect, useRef, useState } from 'react';
 
 import styles from '../styles/pages/Game.module.css';
@@ -56,6 +58,7 @@ export default function Game() {
 
   return (
     <div>
+      <Header />
       <canvas
         ref={canvasRef}
         width={width}

@@ -1,3 +1,5 @@
+import Header from '../components/Header';
+
 import signInWithGoogle from '../util/signInWithGoogle';
 import { getAuth, signOut } from 'firebase/auth';
 
@@ -8,6 +10,7 @@ export default function Index() {
 
   return (
     <div>
+      <Header />
       {
         auth.currentUser ?
         <button onClick={() => signOut(auth)}>
