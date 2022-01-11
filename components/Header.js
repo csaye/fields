@@ -4,7 +4,7 @@ import styles from '../styles/components/Header.module.css';
 
 export default function Header() {
   return (
-    <div>
+    <div className={styles.container}>
       <Link href="/game">
         <a>Game</a>
       </Link>

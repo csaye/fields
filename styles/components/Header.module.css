@@ -1,0 +1,21 @@
+.container {
+  height: 60px;
+  display: flex;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)
+  );
+}
+
+.container > a {
+  margin: 0 10px;
+  color: #2196f3;
+}
+
+.container > a:hover {
+  color: #3f51b5;
+}
