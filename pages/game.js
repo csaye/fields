@@ -21,28 +21,13 @@ export default function Game() {
     ctx.fillRect(0, 0, width, height);
     // wider than tall
     ctx.fillStyle = 'white';
-    if (width > height) {
-      const tileSize = width / mapSize;
-      const diff = -(width - height) / 2;
-      for (let x = 0; x < mapSize; x++) {
-        for (let y = 0; y < mapSize; y++) {
-          ctx.fillRect(
-            x * tileSize + border, diff + y * tileSize + border,
-            tileSize - border * 2, tileSize - border * 2
-          );
-        }
-      }
-    // taller than wide
-    } else {
-      const tileSize = height / mapSize;
-      const diff = -(height - width) / 2;
-      for (let x = 0; x < mapSize; x++) {
-        for (let y = 0; y < mapSize; y++) {
-          ctx.fillRect(
-            diff + x * tileSize + border, y * tileSize + border,
-            tileSize - border * 2, tileSize - border * 2
-          );
-        }
+    const tileSize = (width > height ? width : height) / mapSize;
+    const diff = (width > height ? width - height : height - width) / 2;
+    for (let x = 0; x < mapSize; x++) {
+      for (let y = 0; y < mapSize; y++) {
+        const tileX = x * tileSize + border - (width > height ? 0 : diff);
+        const tileY = y * tileSize + border - (width > height ? diff : 0);
+        ctx.fillRect(tileX, tileY, tileSize - border * 2, tileSize - border * 2);
       }
     }
   }
