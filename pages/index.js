@@ -5,6 +5,7 @@ import { useEffect, useRef, useState } from 'react';
 import styles from '../styles/pages/Index.module.css';
 
 const mapSize = 15;
+const midMap = Math.floor(mapSize / 2);
 const border = 1;
 
 let canvas;
@@ -32,6 +33,11 @@ export default function Index() {
         ctx.fillRect(tileX, tileY, tileSize - border * 2, tileSize - border * 2);
       }
     }
+    // fill player
+    ctx.fillStyle = 'red';
+    const playerX = midMap * tileSize + border - (width > height ? 0 : diff);
+    const playerY = midMap * tileSize + border - (width > height ? diff : 0);
+    ctx.fillRect(playerX, playerY, tileSize - border * 2, tileSize - border * 2);
   }
 
   // called on window resize
