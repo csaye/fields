@@ -10,12 +10,3 @@
     rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)
   );
 }
-
-.container > a {
-  margin: 0 10px;
-  color: #2196f3;
-}
-
-.container > a:hover {
-  color: #3f51b5;
-}

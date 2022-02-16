@@ -1,5 +1,3 @@
-import Link from 'next/link';
-
 import signInWithGoogle from '../util/signInWithGoogle';
 import { getAuth, signOut } from 'firebase/auth';
 
@@ -10,12 +8,6 @@ export default function Header() {
 
   return (
     <div className={styles.container}>
-      <Link href="/">
-        <a>Home</a>
-      </Link>
-      <Link href="/game">
-        <a>Game</a>
-      </Link>
       {
         auth.currentUser ?
         <button onClick={() => signOut(auth)}>
