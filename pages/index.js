@@ -40,6 +40,15 @@ export default function Index() {
     setHeight(window.innerHeight);
   }
 
+  // called on key press
+  function onKeydown(e) {
+    const key = e.key.toLowerCase();
+    if (key === 'w') movePlayer('up');
+    else if (key === 'a') movePlayer('left');
+    else if (key === 's') movePlayer('down');
+    else if (key === 'd') movePlayer('right');
+  }
+
   // get canvas on start
   useEffect(() => {
     canvas = canvasRef.current;
@@ -49,6 +58,7 @@ export default function Index() {
     setHeight(window.innerHeight);
     // set up resize listener
     window.addEventListener('resize', onResize);
+    window.addEventListener('keydown', onKeydown);
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
