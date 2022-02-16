@@ -1,6 +1,7 @@
 import Header from '../components/Header';
 
 import { useEffect, useRef, useState } from 'react';
+import { getFirestore, increment } from 'firebase/firestore';
 
 import styles from '../styles/pages/Index.module.css';
 
@@ -12,7 +13,13 @@ let canvas;
 let ctx;
 
 export default function Index() {
+  const auth = getAuth();
+  const db = getFirestore();
+
   const canvasRef = useRef();
+
+  const uid = auth.currentUser.uid;
+  const userRef = doc(db, 'players', uid);
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -44,6 +51,20 @@ export default function Index() {
   function onResize() {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
+  }
+
+  // moves player in given direction
+  async function movePlayer(direction) {
+    let deltaX = 0;
+    let deltaY = 0;
+    if (direction === 'up') deltaY += 1;
+    if (direction === 'down') deltaY -= 1;
+    if (direction === 'left') deltaX -= 1;
+    if (direction === 'right') deltaX += 1;
+    await userRef.update({
+      x: increment(deltaX),
+      y: increment(deltaY)
+    });
   }
 
   // called on key press
