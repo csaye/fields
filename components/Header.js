@@ -10,11 +10,17 @@ export default function Header() {
     <div className={styles.container}>
       {
         auth.currentUser ?
-        <button onClick={() => signOut(auth)}>
+        <button
+          className="textbutton"
+          onClick={() => signOut(auth)}
+        >
           Sign Out
         </button> :
-        <button onClick={signInWithGoogle}>
-          Sign in with Google
+        <button
+          className="textbutton"
+          onClick={signInWithGoogle}
+        >
+          Sign In
         </button>
       }
     </div>

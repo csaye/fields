@@ -9,4 +9,9 @@
   background: linear-gradient(
     rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0)
   );
+  padding: 0 20px;
+}
+
+.container > button {
+  padding: 10px 20px;
 }
