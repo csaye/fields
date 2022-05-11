@@ -13,7 +13,8 @@ if (!getApps().length) initializeApp(firebaseConfig);
 export default function App(props) {
   const { Component, pageProps } = props;
 
-  // listen for auth
+  const [authed, setAuthed] = useState(undefined);
+
   const auth = getAuth();
 
   // listen for user auth
@@ -30,7 +31,7 @@ export default function App(props) {
         <title>Fields</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Component {...pageProps} />
+      <Component authed={authed} {...pageProps} />
     </>
   );
 }
