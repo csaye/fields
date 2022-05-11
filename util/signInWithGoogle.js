@@ -10,6 +10,8 @@ async function createPlayer() {
   const uid = auth.currentUser.uid;
   const playerRef = doc(db, 'players', uid);
   const playerDoc = await getDoc(playerRef);
+  // return if existing doc
+  if (playerDoc.exists()) return;
 }
 
 // opens google sign in popup
