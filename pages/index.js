@@ -1,7 +1,7 @@
 import Header from '../components/Header';
+import GameView from '../components/GameView';
 
-import { useEffect, useRef, useState } from 'react';
-import { getFirestore, increment } from 'firebase/firestore';
+import signInWithGoogle from '../util/signInWithGoogle';
 
 import styles from '../styles/pages/Index.module.css';
 
