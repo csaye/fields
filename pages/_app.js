@@ -1,9 +1,9 @@
 import Head from 'next/head';
 
+import { useEffect, useState } from 'react';
 import { getApps, initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 import { firebaseConfig } from '../util/firebaseConfig';
-import { useAuthState } from 'react-firebase-hooks/auth';
 
 import '../styles/globals.css';
 
@@ -15,7 +15,14 @@ export default function App(props) {
 
   // listen for auth
   const auth = getAuth();
-  useAuthState(auth);
+
+  // listen for user auth
+  useEffect(() => {
+    const authListener = auth.onAuthStateChanged(() => {
+      setAuthed(!!auth.currentUser);
+    });
+    return () => authListener();
+  }, []);
 
   return (
     <>
