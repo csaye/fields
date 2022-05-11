@@ -6,6 +6,10 @@ const db = getFirestore();
 
 // creates player doc if none existing
 async function createPlayer() {
+  // get player doc
+  const uid = auth.currentUser.uid;
+  const playerRef = doc(db, 'players', uid);
+  const playerDoc = await getDoc(playerRef);
 }
 
 // opens google sign in popup
