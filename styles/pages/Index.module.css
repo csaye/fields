@@ -8,3 +8,16 @@
   justify-content: center;
   height: 100%;
 }
+
+.center {
+  text-align: center;
+  padding: 10px 20px;
+}
+
+.center > h1 {
+  margin: 0 0 8px 0;
+}
+
+.center > button {
+  padding: 10px 20px;
+}
