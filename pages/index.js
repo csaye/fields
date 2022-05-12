@@ -88,13 +88,8 @@ export default function Index() {
   }, [width, height]);
 
   return (
-    <div>
+    <div className={styles.container}>
       <Header />
-      <canvas
-        ref={canvasRef}
-        width={width}
-        height={height}
-      />
     </div>
   );
 }
