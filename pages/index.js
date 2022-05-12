@@ -24,20 +24,6 @@ export default function Index() {
     setHeight(window.innerHeight);
   }
 
-  // moves player in given direction
-  async function movePlayer(direction) {
-    let deltaX = 0;
-    let deltaY = 0;
-    if (direction === 'up') deltaY += 1;
-    if (direction === 'down') deltaY -= 1;
-    if (direction === 'left') deltaX -= 1;
-    if (direction === 'right') deltaX += 1;
-    await userRef.update({
-      x: increment(deltaX),
-      y: increment(deltaY)
-    });
-  }
-
   // get canvas on start
   useEffect(() => {
     canvas = canvasRef.current;
