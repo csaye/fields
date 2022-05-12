@@ -5,12 +5,6 @@ import signInWithGoogle from '../util/signInWithGoogle';
 
 import styles from '../styles/pages/Index.module.css';
 
-const mapSize = 15;
-const midMap = Math.floor(mapSize / 2);
-const border = 1;
-
-let canvas;
-let ctx;
 
 export default function Index() {
   const auth = getAuth();
