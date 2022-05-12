@@ -18,29 +18,6 @@ export default function Index() {
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
 
-  // draws canvas
-  function draw() {
-    // clear canvas
-    ctx.fillStyle = 'black';
-    ctx.fillRect(0, 0, width, height);
-    // wider than tall
-    ctx.fillStyle = 'white';
-    const tileSize = (width > height ? width : height) / mapSize;
-    const diff = (width > height ? width - height : height - width) / 2;
-    for (let x = 0; x < mapSize; x++) {
-      for (let y = 0; y < mapSize; y++) {
-        const tileX = x * tileSize + border - (width > height ? 0 : diff);
-        const tileY = y * tileSize + border - (width > height ? diff : 0);
-        ctx.fillRect(tileX, tileY, tileSize - border * 2, tileSize - border * 2);
-      }
-    }
-    // fill player
-    ctx.fillStyle = 'red';
-    const playerX = midMap * tileSize + border - (width > height ? 0 : diff);
-    const playerY = midMap * tileSize + border - (width > height ? diff : 0);
-    ctx.fillRect(playerX, playerY, tileSize - border * 2, tileSize - border * 2);
-  }
-
   // called on window resize
   function onResize() {
     setWidth(window.innerWidth);
