@@ -11,6 +11,14 @@ export default function Index(props) {
   return (
     <div className={styles.container}>
       <Header />
+      {
+        authed ?
+        <GameView /> :
+        authed === false ?
+        <div className={styles.center}>
+          <p>Loading...</p>
+        </div>
+      }
     </div>
   );
 }
