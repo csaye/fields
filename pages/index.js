@@ -18,6 +18,12 @@ export default function Index(props) {
         <div className={styles.centered}>
           <div className={styles.center}>
             <h1>Fields</h1>
+            <button
+              className="textbutton"
+              onClick={signInWithGoogle}
+            >
+              Sign In
+            </button>
           </div>
         </div> :
         <div className={styles.center}>
