@@ -15,6 +15,11 @@ export default function Index(props) {
         authed ?
         <GameView /> :
         authed === false ?
+        <div className={styles.centered}>
+          <div className={styles.center}>
+            <h1>Fields</h1>
+          </div>
+        </div> :
         <div className={styles.center}>
           <p>Loading...</p>
         </div>
