@@ -114,6 +114,11 @@ export default function GameView() {
           {player.x}, {player.y}
         </div>
       }
+      <canvas
+        ref={canvasRef}
+        width={width}
+        height={height}
+      />
     </div>
   );
 }
