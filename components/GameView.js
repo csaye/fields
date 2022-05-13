@@ -15,6 +15,11 @@ let canvas;
 let ctx;
 
 export default function GameView() {
+  const auth = getAuth();
+  const db = getFirestore();
+
+  const [width, setWidth] = useState(0);
+  const [height, setHeight] = useState(0);
   return (
     <div>
     </div>
