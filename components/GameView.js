@@ -90,6 +90,9 @@ export default function GameView() {
   useEffect(() => {
     canvas = canvasRef.current;
     ctx = canvas.getContext('2d');
+    // initialize dimensions
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
   return (
     <div>
     </div>
