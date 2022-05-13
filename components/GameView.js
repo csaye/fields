@@ -93,6 +93,14 @@ export default function GameView() {
     // initialize dimensions
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
+    // set up resize listener
+    window.addEventListener('resize', onResize);
+    window.addEventListener('keydown', onKeydown);
+    return () => {
+      window.removeEventListener('resize', onResize);
+      window.removeEventListener('keydown', onKeydown);
+    }
+  }, []);
   return (
     <div>
     </div>
