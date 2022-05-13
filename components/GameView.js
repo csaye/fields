@@ -67,6 +67,14 @@ export default function GameView() {
     setWidth(window.innerWidth);
     setHeight(window.innerHeight);
   }
+
+  // moves player in given direction
+  async function movePlayer(direction) {
+    await updateDoc(playerRef, {
+      x: increment(direction === 'left' ? -1 : direction === 'right' ? 1 : 0),
+      y: increment(direction === 'down' ? -1 : direction === 'up' ? 1 : 0)
+    });
+  }
   return (
     <div>
     </div>
