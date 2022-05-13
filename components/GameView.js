@@ -46,6 +46,12 @@ export default function GameView() {
         ctx.fillRect(tileX, tileY, tileSize - border * 2, tileSize - border * 2);
       }
     }
+    if (!player || !players) return;
+    // draw player
+    ctx.fillStyle = player.color;
+    const playerX = midMap * tileSize + border - (width > height ? 0 : diff);
+    const playerY = midMap * tileSize + border - (width > height ? diff : 0);
+    ctx.fillRect(playerX, playerY, tileSize - border * 2, tileSize - border * 2);
   return (
     <div>
     </div>
