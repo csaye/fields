@@ -61,6 +61,12 @@ export default function GameView() {
       ctx.fillRect(playerX, playerY, tileSize - border * 2, tileSize - border * 2);
     }
   }
+
+  // called on window resize
+  function onResize() {
+    setWidth(window.innerWidth);
+    setHeight(window.innerHeight);
+  }
   return (
     <div>
     </div>
