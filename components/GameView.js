@@ -35,6 +35,12 @@ export default function GameView() {
     // clear canvas
     ctx.fillStyle = 'black';
     ctx.fillRect(0, 0, width, height);
+    // draw grid
+    ctx.fillStyle = 'white';
+    const tileSize = (width > height ? width : height) / mapSize;
+    const diff = (width > height ? width - height : height - width) / 2;
+    for (let x = 0; x < mapSize; x++) {
+      for (let y = 0; y < mapSize; y++) {
   return (
     <div>
     </div>
