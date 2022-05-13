@@ -29,6 +29,12 @@ export default function GameView() {
   const [players] = useCollectionData(playersRef, { idField: 'id' });
   const player = players?.find(player => player.id === uid);
   const playerRef = doc(playersRef, uid);
+
+  // draws canvas
+  function draw() {
+    // clear canvas
+    ctx.fillStyle = 'black';
+    ctx.fillRect(0, 0, width, height);
   return (
     <div>
     </div>
