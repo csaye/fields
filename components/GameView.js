@@ -107,7 +107,13 @@ export default function GameView() {
   }, [width, height, players]);
 
   return (
-    <div>
+    <div className={styles.container}>
+      {
+        player &&
+        <div className={styles.stats}>
+          {player.x}, {player.y}
+        </div>
+      }
     </div>
   );
 }
