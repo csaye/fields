@@ -75,6 +75,16 @@ export default function GameView() {
       y: increment(direction === 'down' ? -1 : direction === 'up' ? 1 : 0)
     });
   }
+
+  // called on key press
+  function onKeydown(e) {
+    if (e.repeat) return;
+    const key = e.key.toLowerCase();
+    if (['w', 'arrowup'].includes(key)) movePlayer('up');
+    else if (['a', 'arrowleft'].includes(key)) movePlayer('left');
+    else if (['s', 'arrowdown'].includes(key)) movePlayer('down');
+    else if (['d', 'arrowright'].includes(key)) movePlayer('right');
+  }
   return (
     <div>
     </div>
