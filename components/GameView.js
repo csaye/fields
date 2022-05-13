@@ -85,6 +85,11 @@ export default function GameView() {
     else if (['s', 'arrowdown'].includes(key)) movePlayer('down');
     else if (['d', 'arrowright'].includes(key)) movePlayer('right');
   }
+
+  // get canvas on start
+  useEffect(() => {
+    canvas = canvasRef.current;
+    ctx = canvas.getContext('2d');
   return (
     <div>
     </div>
