@@ -20,6 +20,15 @@ export default function GameView() {
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
+
+  const canvasRef = useRef();
+
+  const uid = auth.currentUser.uid;
+
+  const playersRef = collection(db, 'players');
+  const [players] = useCollectionData(playersRef, { idField: 'id' });
+  const player = players?.find(player => player.id === uid);
+  const playerRef = doc(playersRef, uid);
   return (
     <div>
     </div>
