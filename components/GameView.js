@@ -101,6 +101,11 @@ export default function GameView() {
       window.removeEventListener('keydown', onKeydown);
     }
   }, []);
+
+  useEffect(() => {
+    draw();
+  }, [width, height, players]);
+
   return (
     <div>
     </div>
